@@ -32,4 +32,9 @@ public class KorisnikModel {
     public void setTrenutniKorisnik(Korisnik trenutniKorisnik) {
         this.trenutniKorisnik.set(trenutniKorisnik);
     }
+
+    public void napuni() {
+        this.korisnici.add(new Korisnik("Vedran", "Ljubovic", "vedran.ljubovic@gmail.com", "vedran", "123456"));
+        this.korisnici.add(new Korisnik("Selim", "Hosi", "s.hosi@gmail.com", "selimselim", "123456"));
+    }
 }

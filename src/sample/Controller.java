@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -18,13 +20,27 @@ public class Controller {
     @FXML
     private javafx.scene.control.Button closeButton;
 
-    public Controller() {
-        model = new KorisnikModel();
+    public Controller(KorisnikModel korisnikModel) {
+        model = korisnikModel;
+        model.setTrenutniKorisnik(model.getKorisnici().get(0));
     }
 
     @FXML
     public void initialize() {
         spisakKorisnika.setItems(model.getKorisnici());
+        unosImena.textProperty().bindBidirectional(model.getTrenutniKorisnik().getImeProperty());
+        unosPrezimena.textProperty().bindBidirectional(model.getTrenutniKorisnik().getPrezimeProperty());
+        unosEmaila.textProperty().bindBidirectional(model.getTrenutniKorisnik().getEmailProperty());
+        unosKorisnickogImena.textProperty().bindBidirectional(model.getTrenutniKorisnik().getKorisnickoImeProperty());
+        unosLozinke.textProperty().bindBidirectional(model.getTrenutniKorisnik().getLozinkaProperty());
+
+        spisakKorisnika.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
+            @Override
+            public void changed(ObservableValue<? extends Korisnik> observableValue, Korisnik korisnik, Korisnik t1) {
+                model.setTrenutniKorisnik(t1);
+            }
+        });
+
     }
 
 
@@ -32,6 +48,7 @@ public class Controller {
     public void dodajKorisnika(ActionEvent actionEvent) {
         Korisnik noviKorisnik = new Korisnik();
         model.dodajKorisnika(noviKorisnik);
+        model.setTrenutniKorisnik(noviKorisnik);
     }
 
     public void zavrsiProgram(ActionEvent actionEvent) {

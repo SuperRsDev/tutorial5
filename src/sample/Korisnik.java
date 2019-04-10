@@ -27,43 +27,48 @@ public class Korisnik {
         lozinka = new SimpleStringProperty("");
     }
 
-    public SimpleStringProperty getIme() {
+    public SimpleStringProperty getImeProperty() {
         return ime;
     }
 
-    public void setIme(SimpleStringProperty ime) {
+    public void setImeProperty(SimpleStringProperty ime) {
         this.ime = ime;
     }
 
-    public SimpleStringProperty getPrezime() {
+    public SimpleStringProperty getPrezimeProperty() {
         return prezime;
     }
 
-    public void setPrezime(SimpleStringProperty prezime) {
+    public void setPrezimeProperty(SimpleStringProperty prezime) {
         this.prezime = prezime;
     }
 
-    public SimpleStringProperty getEmail() {
+    public SimpleStringProperty getEmailProperty() {
         return email;
     }
 
-    public void setEmail(SimpleStringProperty email) {
+    public void setEmailProperty(SimpleStringProperty email) {
         this.email = email;
     }
 
-    public SimpleStringProperty getKorisnickoIme() {
+    public SimpleStringProperty getKorisnickoImeProperty() {
         return korisnickoIme;
     }
 
-    public void setKorisnickoIme(SimpleStringProperty korisnickoIme) {
+    public void setKorisnickoImeProperty(SimpleStringProperty korisnickoIme) {
         this.korisnickoIme = korisnickoIme;
     }
 
-    public SimpleStringProperty getLozinka() {
+    public SimpleStringProperty getLozinkaProperty() {
         return lozinka;
     }
 
-    public void setLozinka(SimpleStringProperty lozinka) {
+    public void setLozinkaProperty(SimpleStringProperty lozinka) {
         this.lozinka = lozinka;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", this.ime.getValue(), this.prezime.getValue());
     }
 }
