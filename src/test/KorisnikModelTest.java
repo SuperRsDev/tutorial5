@@ -39,7 +39,12 @@ class KorisnikModelTest {
         var prviKorisnik = this.korisnikModel.getKorisnici().get(0);
         assertTrue(trenutniKorisnik.equals(prviKorisnik));
 
-        var noviKorisnik = new Korisnik();
+        var noviKorisnik = new Korisnik("Hamo", "Hamo", "M", "e", "1234");
+        this.korisnikModel.dodajKorisnika(noviKorisnik);
+        this.korisnikModel.setTrenutniKorisnik(noviKorisnik);
+
+        var novTrenutniKorisnik = this.korisnikModel.getTrenutniKorisnik();
+        assertTrue(novTrenutniKorisnik.equals(noviKorisnik));
     }
 
     @Test
@@ -48,6 +53,12 @@ class KorisnikModelTest {
 
     @Test
     void setTrenutniKorisnik() {
+        var noviKorisnik = new Korisnik("Hamo", "Hamo", "M", "e", "1234");
+        this.korisnikModel.dodajKorisnika(noviKorisnik);
+        this.korisnikModel.setTrenutniKorisnik(noviKorisnik);
+
+        var novTrenutniKorisnik = this.korisnikModel.getTrenutniKorisnik();
+        assertTrue(novTrenutniKorisnik.equals(noviKorisnik));
     }
 
     @Test
