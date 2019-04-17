@@ -39,9 +39,9 @@ class ControllerTest {
     }
 
     @Test
-    void dodajKorisnika(FxRobot robot) {//addNewUser
+    void dodajKorisnika(FxRobot robot) {
         TextField imeKorisnikaField = robot.lookup("#unosImena").queryAs(TextField.class);
-        var noviKorisnik = new Korisnik("Test", "Test", "test.test@gmail.com", "test", "123456");
+        Korisnik noviKorisnik = new Korisnik("Test", "Test", "test.test@gmail.com", "test", "123456");
         robot.clickOn("#addNewUser");
         robot.clickOn("#unosImena");
         robot.write(noviKorisnik.getImeProperty().getName());

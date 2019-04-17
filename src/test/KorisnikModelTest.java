@@ -1,3 +1,4 @@
+import javafx.collections.ObservableList;
 import org.junit.jupiter.api.Test;
 import sample.Korisnik;
 import sample.KorisnikModel;
@@ -12,38 +13,38 @@ class KorisnikModelTest {
 
     @Test
     void getKorisnici() {
-        var korisnici = this.korisnikModel.getKorisnici();
+        ObservableList<Korisnik> korisnici = this.korisnikModel.getKorisnici();
         assertEquals(korisnici.size(), 0);
 
         this.korisnikModel.dodajKorisnika(new Korisnik());
-        var novaVelicinaKorisnika = this.korisnikModel.getKorisnici().size();
+        int novaVelicinaKorisnika = this.korisnikModel.getKorisnici().size();
         assertEquals(novaVelicinaKorisnika, 1);
     }
 
     @Test
     void dodajKorisnika() {
-        var korisnici = this.korisnikModel.getKorisnici();
+        ObservableList<Korisnik> korisnici = this.korisnikModel.getKorisnici();
         assertEquals(korisnici.size(), 0);
 
         this.korisnikModel.dodajKorisnika(new Korisnik());
         this.korisnikModel.dodajKorisnika(new Korisnik());
         this.korisnikModel.dodajKorisnika(new Korisnik());
-        var novaVelicinaKorisnika = this.korisnikModel.getKorisnici().size();
+        int novaVelicinaKorisnika = this.korisnikModel.getKorisnici().size();
         assertEquals(novaVelicinaKorisnika, 3);
     }
 
     @Test
     void getTrenutniKorisnik() {
         this.korisnikModel.napuni();
-        var trenutniKorisnik = this.korisnikModel.getTrenutniKorisnik();
-        var prviKorisnik = this.korisnikModel.getKorisnici().get(0);
+        Korisnik trenutniKorisnik = this.korisnikModel.getTrenutniKorisnik();
+        Korisnik prviKorisnik = this.korisnikModel.getKorisnici().get(0);
         assertTrue(trenutniKorisnik.equals(prviKorisnik));
 
-        var noviKorisnik = new Korisnik("Hamo", "Hamo", "M", "e", "1234");
+        Korisnik noviKorisnik = new Korisnik("Hamo", "Hamo", "M", "e", "1234");
         this.korisnikModel.dodajKorisnika(noviKorisnik);
         this.korisnikModel.setTrenutniKorisnik(noviKorisnik);
 
-        var novTrenutniKorisnik = this.korisnikModel.getTrenutniKorisnik();
+        Korisnik novTrenutniKorisnik = this.korisnikModel.getTrenutniKorisnik();
         assertTrue(novTrenutniKorisnik.equals(noviKorisnik));
     }
 
@@ -53,18 +54,18 @@ class KorisnikModelTest {
 
     @Test
     void setTrenutniKorisnik() {
-        var noviKorisnik = new Korisnik("Hamo", "Hamo", "M", "e", "1234");
+        Korisnik noviKorisnik = new Korisnik("Hamo", "Hamo", "M", "e", "1234");
         this.korisnikModel.dodajKorisnika(noviKorisnik);
         this.korisnikModel.setTrenutniKorisnik(noviKorisnik);
 
-        var novTrenutniKorisnik = this.korisnikModel.getTrenutniKorisnik();
+        Korisnik novTrenutniKorisnik = this.korisnikModel.getTrenutniKorisnik();
         assertTrue(novTrenutniKorisnik.equals(noviKorisnik));
     }
 
     @Test
     void napuni() {
         this.korisnikModel.napuni();
-        var velicinKorisnikaNakonNapuni = this.korisnikModel.getKorisnici().size();
+        int velicinKorisnikaNakonNapuni = this.korisnikModel.getKorisnici().size();
         assertEquals(velicinKorisnikaNakonNapuni, 4);
     }
 }

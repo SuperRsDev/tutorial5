@@ -44,8 +44,6 @@ public class Controller {
         });
     }
 
-
-
     public void dodajKorisnika(ActionEvent actionEvent) {
         Korisnik noviKorisnik = new Korisnik();
         model.dodajKorisnika(noviKorisnik);
