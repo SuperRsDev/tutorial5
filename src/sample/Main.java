@@ -14,7 +14,7 @@ public class Main extends Application {
         model.napuni();
 
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/sample.fxml"));
         loader.setController(new Controller(model));
         Parent root = loader.load();
         primaryStage.setTitle("Korisnici");

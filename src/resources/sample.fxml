@@ -43,7 +43,7 @@
           <HBox prefHeight="100.0" prefWidth="200.0" spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="5">
               <children>
                   <Button onAction="#dodajKorisnika" prefWidth="100.0" mnemonicParsing="false" text="Dodaj"/>
-                  <Button onAction="#zavrsiProgram" prefWidth="100.0" mnemonicParsing="false" text="Kraj" fx:id="closeButton" />
+                  <Button fx:id="closeButton" onAction="#zavrsiProgram" prefWidth="100.0" mnemonicParsing="false" text="Kraj"  />
               </children>
           </HBox>
         </children>
